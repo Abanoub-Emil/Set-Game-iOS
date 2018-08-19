@@ -10,12 +10,28 @@ import UIKit
 
 class SetGameViewController: UIViewController {
     
+    @IBOutlet var allCards: [UIButton]!
+    
+    
+    let setGameViewModel = SetGameViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGameViewModel.setButtonsImage(allCards)
+
         
         
     }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
   
 
 }
