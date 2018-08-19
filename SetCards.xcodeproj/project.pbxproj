@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2E9D2D292129435C0088F672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D282129435C0088F672 /* AppDelegate.swift */; };
-		2E9D2D2B2129435C0088F672 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2A2129435C0088F672 /* ViewController.swift */; };
+		2E9D2D2B2129435C0088F672 /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */; };
 		2E9D2D2E2129435C0088F672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2C2129435C0088F672 /* Main.storyboard */; };
 		2E9D2D302129436A0088F672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2F2129436A0088F672 /* Assets.xcassets */; };
 		2E9D2D332129436A0088F672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D312129436A0088F672 /* LaunchScreen.storyboard */; };
+		2E9D2D402129494C0088F672 /* SetGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D3F2129494C0088F672 /* SetGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E9D2D252129435C0088F672 /* SetCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D2D282129435C0088F672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E9D2D2A2129435C0088F672 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
 		2E9D2D2D2129435C0088F672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E9D2D2F2129436A0088F672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E9D2D322129436A0088F672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E9D2D342129436A0088F672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E9D2D3F2129494C0088F672 /* SetGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,55 @@
 		2E9D2D272129435C0088F672 /* SetCards */ = {
 			isa = PBXGroup;
 			children = (
-				2E9D2D282129435C0088F672 /* AppDelegate.swift */,
-				2E9D2D2A2129435C0088F672 /* ViewController.swift */,
+				2E9D2D3E212948240088F672 /* SupportingFiles */,
+				2E9D2D3D212948180088F672 /* ViewModels */,
+				2E9D2D3C212948100088F672 /* ViewControllers */,
+				2E9D2D3B2129480A0088F672 /* View */,
+				2E9D2D3A212948030088F672 /* Model */,
+			);
+			path = SetCards;
+			sourceTree = "<group>";
+		};
+		2E9D2D3A212948030088F672 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2E9D2D3B2129480A0088F672 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				2E9D2D2C2129435C0088F672 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2E9D2D3C212948100088F672 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2E9D2D3D212948180088F672 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2E9D2D3F2129494C0088F672 /* SetGameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2E9D2D3E212948240088F672 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2E9D2D282129435C0088F672 /* AppDelegate.swift */,
 				2E9D2D2F2129436A0088F672 /* Assets.xcassets */,
 				2E9D2D312129436A0088F672 /* LaunchScreen.storyboard */,
 				2E9D2D342129436A0088F672 /* Info.plist */,
 			);
-			path = SetCards;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E9D2D2B2129435C0088F672 /* ViewController.swift in Sources */,
+				2E9D2D402129494C0088F672 /* SetGameViewModel.swift in Sources */,
+				2E9D2D2B2129435C0088F672 /* SetGameViewController.swift in Sources */,
 				2E9D2D292129435C0088F672 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5L4J6Q8N6;
 				INFOPLIST_FILE = SetCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5L4J6Q8N6;
 				INFOPLIST_FILE = SetCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
