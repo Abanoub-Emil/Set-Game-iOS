@@ -255,7 +255,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-Dw-E8Y">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-Dw-E8Y">
                                 <rect key="frame" x="16" y="35" width="288" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.70869014180000001" blue="0.61319220600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

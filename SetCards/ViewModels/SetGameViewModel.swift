@@ -14,7 +14,7 @@ class SetGameViewModel {
     var playingCards = PlayingCards()
     var selectedBtnsNames = [String]()
     var selectedBtnsTags = [Int]()
-    var isSelectedBefore = true
+    var isSelectedBefore = false
     
     func setButtonsImage(_ allCards: [UIButton]) {
         
@@ -64,9 +64,13 @@ class SetGameViewModel {
                 return
             }
             
-            for btn in selectedBtnsNames{
-                if btnTitle == btn{
+            for index in 0..<selectedBtnsNames.count{
+                if btnTitle == selectedBtnsNames[index]{
                     isSelectedBefore = true
+                    selectedBtnsNames.remove(at: index)
+                    return
+                } else {
+                    isSelectedBefore = false
                 }
             }
             
