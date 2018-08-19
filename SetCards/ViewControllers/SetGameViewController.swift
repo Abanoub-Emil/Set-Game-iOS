@@ -33,6 +33,14 @@ class SetGameViewController: UIViewController {
         
     }
   
-
+    
+    @IBAction func cardClicked(_ sender: UIButton) {
+        
+        setGameViewModel.buttonIsSelected(sender)
+        setGameViewModel.changeButtonTintColor(sender)
+        setGameViewModel.checkNumberOfSelected(allCards)
+        
+    }
+    
 }
 
