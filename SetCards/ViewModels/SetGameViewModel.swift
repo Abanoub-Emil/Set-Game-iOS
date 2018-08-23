@@ -31,7 +31,7 @@ class SetGameViewModel {
         }
     }
     
-    func checkNumberOfSelected(_ allCards: [UIButton]) {
+    func checkNumberOfSelected(_ allCards: [UIButton]) -> Bool? {
         if (selectedBtnsNames.count == 3){
             
             var selectedGroup = [String]()
@@ -43,11 +43,13 @@ class SetGameViewModel {
                 selectedGroup[0] == selectedGroup[2] {
                 print("a match")
                 replaceSuccessfulMatchCards(allCards)
-                return
+                return true
             }
             
            setSelectinToNone(allCards)
+            return false
         }
+        return nil
     }
     
     func setSelectinToNone(_ allCards: [UIButton]) {

@@ -11,12 +11,13 @@ import UIKit
 class SetGameViewController: UIViewController {
     
     
-    let alertTitle = "Set Game"
-    let alertMessage = "Congratulations you have won the game"
-    let alertOkButtonText = "Restart"
     var hiddenRows = [UIStackView]()
+    var score = 0
+    let alertTitle = "Set Game"
+    let alertOkButtonText = "Restart"
     @IBOutlet var allCards: [UIButton]!
     
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var deal3CardsButton: UIButton!
     @IBOutlet var hiddenStacks: [UIStackView]!
     
@@ -45,12 +46,20 @@ class SetGameViewController: UIViewController {
         
         setGameViewModel.buttonIsSelected(sender)
         setGameViewModel.changeButtonTintColor(sender)
-        setGameViewModel.checkNumberOfSelected(allCards)
-        
+        let isMatch = setGameViewModel.checkNumberOfSelected(allCards)
+        if let match = isMatch {
+            if match {
+                score += 3
+            } else {
+                score -= 2
+            }
+        }
         if setGameViewModel.playingCards.secondryImagesNames.isEmpty {
             checkIfGameHasFinished()
             deal3CardsButton.isEnabled = false
         }
+        scoreLabel.text = String(score)
+        self.view.layoutIfNeeded()
     }
     
     
@@ -74,12 +83,9 @@ class SetGameViewController: UIViewController {
             }
             
         }
-        
+        let alertMessage = "Congratulations you have finished the game with score: \(score)"
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        //We add buttons to the alert controller by creating UIAlertActions:
-        //            let actionOk = UIAlertAction(title: alertOkButtonText,
-        //                                         style: .default,
-        //                                         handler: nil)
+
         let actionOk = UIAlertAction(title: alertOkButtonText, style: .default) { (UIAlertAction) in
             self.resetDashboard()
         }
@@ -98,6 +104,8 @@ class SetGameViewController: UIViewController {
         }
         self.hiddenRows = self.hiddenStacks
         self.deal3CardsButton.isEnabled = true
+        score = 0
+        scoreLabel.text = String(score)
     }
     
 }
