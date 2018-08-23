@@ -32,7 +32,7 @@ class SetGameViewModel {
     }
     
     func checkNumberOfSelected(_ allCards: [UIButton]) -> Bool? {
-        if (selectedBtnsNames.count == 3){
+        
             
             var selectedGroup = [String]()
             for name in selectedBtnsNames {
@@ -48,8 +48,7 @@ class SetGameViewModel {
             
            setSelectinToNone(allCards)
             return false
-        }
-        return nil
+        
     }
     
     func setSelectinToNone(_ allCards: [UIButton]) {
@@ -68,7 +67,6 @@ class SetGameViewModel {
             hideButtons(allCards)
             return
         }
-        UIView.animate(withDuration: 0.5) {
             for btn in allCards {
                 for name in self.selectedBtnsNames{
                     if btn.title(for: .normal) == name {
@@ -80,13 +78,11 @@ class SetGameViewModel {
                     }
                 }
             }
-            
-        }
+        
         selectedBtnsNames.removeAll()
     }
     
     func hideButtons(_ allCards: [UIButton]) {
-        UIView.animate(withDuration: 0.5) {
             for btn in allCards {
                 for name in self.selectedBtnsNames{
                     if btn.title(for: .normal) == name {
@@ -94,7 +90,6 @@ class SetGameViewModel {
                     }
                 }
             }
-        }
         setSelectinToNone(allCards)
     }
     

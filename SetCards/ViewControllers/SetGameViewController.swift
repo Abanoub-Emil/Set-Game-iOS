@@ -46,20 +46,30 @@ class SetGameViewController: UIViewController {
         
         setGameViewModel.buttonIsSelected(sender)
         setGameViewModel.changeButtonTintColor(sender)
-        let isMatch = setGameViewModel.checkNumberOfSelected(allCards)
-        if let match = isMatch {
-            if match {
-                score += 3
-            } else {
-                score -= 2
-            }
+        if (setGameViewModel.selectedBtnsNames.count == 3){
+            UIView.animate(withDuration: 0.9,
+                           delay: 0,
+                           options: .transitionCrossDissolve,
+                           animations: {
+                            let isMatch = self.setGameViewModel.checkNumberOfSelected(self.allCards)
+                            if let match = isMatch {
+                                if match {
+                                    self.score += 3
+                                } else {
+                                    self.score -= 2
+                                }
+                            }
+                            self.view.layoutIfNeeded()
+            },
+                           completion: nil)
+            
         }
         if setGameViewModel.playingCards.secondryImagesNames.isEmpty {
             checkIfGameHasFinished()
             deal3CardsButton.isEnabled = false
         }
         scoreLabel.text = String(score)
-        self.view.layoutIfNeeded()
+        
     }
     
     
@@ -85,7 +95,7 @@ class SetGameViewController: UIViewController {
         }
         let alertMessage = "Congratulations you have finished the game with score: \(score)"
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-
+        
         let actionOk = UIAlertAction(title: alertOkButtonText, style: .default) { (UIAlertAction) in
             self.resetDashboard()
         }
