@@ -43,6 +43,7 @@
 		2E9D2D7E212964310088F672 /* CylinderR1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D622129642F0088F672 /* CylinderR1.png */; };
 		2E9D2D7F212964310088F672 /* set_solid 2 2 2 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D63212964300088F672 /* set_solid 2 2 2 2.png */; };
 		2E9D2D80212964310088F672 /* DiamondR1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D64212964300088F672 /* DiamondR1.png */; };
+		2E9D2D82212999AF0088F672 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D81212999AF0088F672 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		2E9D2D622129642F0088F672 /* CylinderR1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CylinderR1.png; sourceTree = "<group>"; };
 		2E9D2D63212964300088F672 /* set_solid 2 2 2 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set_solid 2 2 2 2.png"; sourceTree = "<group>"; };
 		2E9D2D64212964300088F672 /* DiamondR1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DiamondR1.png; sourceTree = "<group>"; };
+		2E9D2D81212999AF0088F672 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				2E9D2D552129642B0088F672 /* CylinderR2.png */,
 				2E9D2D5E2129642E0088F672 /* CylinderR3.png */,
 				2E9D2D5F2129642E0088F672 /* DiamondG1.png */,
+				2E9D2D81212999AF0088F672 /* logo.png */,
 				2E9D2D562129642C0088F672 /* DiamondG2.png */,
 				2E9D2D512129642A0088F672 /* DiamondG3.png */,
 				2E9D2D542129642B0088F672 /* DiamondP1.png */,
@@ -267,6 +270,7 @@
 			files = (
 				2E9D2D75212964310088F672 /* CylinderP1.png in Resources */,
 				2E9D2D7C212964310088F672 /* DiamondR3.png in Resources */,
+				2E9D2D82212999AF0088F672 /* logo.png in Resources */,
 				2E9D2D7E212964310088F672 /* CylinderR1.png in Resources */,
 				2E9D2D332129436A0088F672 /* LaunchScreen.storyboard in Resources */,
 				2E9D2D45212961C30088F672 /* Default-568h@2x.png in Resources */,

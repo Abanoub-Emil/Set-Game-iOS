@@ -17,7 +17,7 @@ class SetGameViewModel {
     var isSelectedBefore = false
     
     func setButtonsImage(_ allCards: [UIButton]) {
-        
+        playingCards = PlayingCards()
         for index in 0..<playingCards.primaryImagesNames.count {
             let rand = Int(arc4random_uniform(UInt32(playingCards.primaryImagesNames.count)))
             let btnImageName = playingCards.primaryImagesNames.remove(at: rand)
@@ -42,24 +42,68 @@ class SetGameViewModel {
             if selectedGroup[0] == selectedGroup[1],
                 selectedGroup[0] == selectedGroup[2] {
                 print("a match")
-                
+                replaceSuccessfulMatchCards(allCards)
+                return
             }
             
-            for btn in allCards {
-                for name in selectedBtnsNames{
-                    if btn.title(for: .normal) == name {
-                        btn.layer.borderWidth = 0
-                    }
-                }
-            }
-            selectedBtnsNames.removeAll()
+           setSelectinToNone(allCards)
         }
     }
     
-    func buttonIsSelected(_ button: UIButton) {
-        if let btnTitle = button.title(for: .normal){
+    func setSelectinToNone(_ allCards: [UIButton]) {
+        for btn in allCards {
+            for name in selectedBtnsNames{
+                if btn.title(for: .normal) == name {
+                    btn.layer.borderWidth = 0
+                }
+            }
+        }
+        selectedBtnsNames.removeAll()
+    }
+    
+    func replaceSuccessfulMatchCards(_ allCards: [UIButton]) {
+        if playingCards.secondryImagesNames.isEmpty {
+            hideButtons(allCards)
+            return
+        }
+        UIView.animate(withDuration: 0.5) {
+            for btn in allCards {
+                for name in self.selectedBtnsNames{
+                    if btn.title(for: .normal) == name {
+                        btn.layer.borderWidth = 0
+                        let rand = Int(arc4random_uniform(UInt32(self.playingCards.secondryImagesNames.count)))
+                        let btnImageName = self.playingCards.secondryImagesNames.remove(at: rand)
+                        btn.setImage(UIImage(named: btnImageName), for: .normal)
+                        btn.setTitle(btnImageName, for: .normal)
+                    }
+                }
+            }
             
-            if selectedBtnsNames.isEmpty{
+        }
+        selectedBtnsNames.removeAll()
+    }
+    
+    func hideButtons(_ allCards: [UIButton]) {
+        UIView.animate(withDuration: 0.5) {
+            for btn in allCards {
+                for name in self.selectedBtnsNames{
+                    if btn.title(for: .normal) == name {
+                        btn.setImage(nil, for: .normal)
+                    }
+                }
+            }
+        }
+        setSelectinToNone(allCards)
+    }
+    
+    func buttonIsSelected(_ button: UIButton) {
+        if let btnTitle = button.title(for: .normal) {
+            
+                if button.currentImage == nil {
+                    return
+                }
+            
+            if selectedBtnsNames.isEmpty {
                 appendToSelectedButtons(title: btnTitle, tag: button.tag)
                 return
             }
@@ -68,7 +112,7 @@ class SetGameViewModel {
                 if btnTitle == selectedBtnsNames[index]{
                     isSelectedBefore = true
                     selectedBtnsNames.remove(at: index)
-                    return
+                    break
                 } else {
                     isSelectedBefore = false
                 }
@@ -89,6 +133,10 @@ class SetGameViewModel {
     
     func changeButtonTintColor(_ button: UIButton) {
         
+        if button.currentImage == nil {
+            return
+        }
+        
         if (!isSelectedBefore){
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.blue.cgColor
@@ -96,4 +144,24 @@ class SetGameViewModel {
             button.layer.borderWidth = 0
         }
     }
+    
+    func addThreeCardsTo(_ allCards: [UIButton]) {
+        var numOfAddedCards = 0
+        for btn in allCards {
+            if btn.currentImage == nil {
+                let rand = Int(arc4random_uniform(UInt32(self.playingCards.secondryImagesNames.count)))
+                let btnImageName = self.playingCards.secondryImagesNames.remove(at: rand)
+                btn.setImage(UIImage(named: btnImageName), for: .normal)
+                btn.setTitle(btnImageName, for: .normal)
+                numOfAddedCards += 1
+            }
+            
+            if numOfAddedCards == 3 {
+                break
+            }
+        }
+        
+    }
+    
+    
 }

@@ -17,7 +17,7 @@ struct PlayingCards {
                           "SG1", "SG2", "SG3"]
                           
     
-var secndryImagesNames = ["SR1", "SR2", "SR3",
+var secondryImagesNames = ["SR1", "SR2", "SR3",
                           "SP1", "SP2", "SP3",
                           "DiamondG1", "CylinderG2", "DiamondG3",
                           "DiamondR1", "CylinderR2", "DiamondR3"]

@@ -255,13 +255,16 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-Dw-E8Y">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-Dw-E8Y">
                                 <rect key="frame" x="16" y="35" width="288" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.70869014180000001" blue="0.61319220600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="D67-ya-WfW"/>
                                 </constraints>
                                 <state key="normal" title="Deal 3 More Cards"/>
+                                <connections>
+                                    <action selector="dealThreeMoreCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hVQ-sl-pJs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -277,6 +280,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="deal3CardsButton" destination="vcs-Dw-E8Y" id="ylh-j1-2rD"/>
                         <outletCollection property="allCards" destination="cWH-eT-MR9" collectionClass="NSMutableArray" id="vcZ-U7-jQG"/>
                         <outletCollection property="allCards" destination="Gox-ig-gp7" collectionClass="NSMutableArray" id="8fz-ze-vJo"/>
                         <outletCollection property="allCards" destination="qaH-sq-yTu" collectionClass="NSMutableArray" id="1wf-MR-iXl"/>
@@ -301,6 +305,10 @@
                         <outletCollection property="allCards" destination="hff-U6-wV1" collectionClass="NSMutableArray" id="05I-3n-aeH"/>
                         <outletCollection property="allCards" destination="8sd-bE-Wgg" collectionClass="NSMutableArray" id="KFc-XV-3Qw"/>
                         <outletCollection property="allCards" destination="xFB-c3-Qeb" collectionClass="NSMutableArray" id="qwG-Po-SP7"/>
+                        <outletCollection property="hiddenStacks" destination="Fvd-2V-Q6X" collectionClass="NSMutableArray" id="TGQ-sf-LLF"/>
+                        <outletCollection property="hiddenStacks" destination="bOc-lN-7Ca" collectionClass="NSMutableArray" id="kgN-qm-VaS"/>
+                        <outletCollection property="hiddenStacks" destination="SwH-oX-ufN" collectionClass="NSMutableArray" id="IhC-hB-JY9"/>
+                        <outletCollection property="hiddenStacks" destination="DlX-Dy-ctQ" collectionClass="NSMutableArray" id="PN1-0q-iae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
