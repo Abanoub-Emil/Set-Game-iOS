@@ -56,7 +56,7 @@ class SetGameViewController: UIViewController {
                                 if match {
                                     self.score += 3
                                 } else {
-                                    self.score -= 2
+                                    self.score -= 7
                                 }
                             }
                             self.view.layoutIfNeeded()
