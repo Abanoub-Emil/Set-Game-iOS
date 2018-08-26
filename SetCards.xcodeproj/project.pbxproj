@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E9A4D3921329FFE004DDB11 /* SetGameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A4D3821329FFE004DDB11 /* SetGameProtocol.swift */; };
+		2E9A4D3C2132C19E004DDB11 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A4D3B2132C19E004DDB11 /* ButtonExtension.swift */; };
 		2E9D2D292129435C0088F672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D282129435C0088F672 /* AppDelegate.swift */; };
 		2E9D2D2B2129435C0088F672 /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */; };
 		2E9D2D2E2129435C0088F672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2C2129435C0088F672 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E9A4D3821329FFE004DDB11 /* SetGameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameProtocol.swift; sourceTree = "<group>"; };
+		2E9A4D3B2132C19E004DDB11 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		2E9D2D252129435C0088F672 /* SetCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D2D282129435C0088F672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E9A4D3A2132C17E004DDB11 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2E9A4D3B2132C19E004DDB11 /* ButtonExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		2E9D2D1C2129435B0088F672 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 				2E9D2D3D212948180088F672 /* ViewModels */,
 				2E9D2D3C212948100088F672 /* ViewControllers */,
 				2E9D2D3B2129480A0088F672 /* View */,
+				2E9A4D3A2132C17E004DDB11 /* Extension */,
 				2E9D2D342129436A0088F672 /* Info.plist */,
 				2E9D2D48212964060088F672 /* Images */,
 			);
@@ -159,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				2E9D2D3F2129494C0088F672 /* SetGameViewModel.swift */,
+				2E9A4D3821329FFE004DDB11 /* SetGameProtocol.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -314,7 +328,9 @@
 				2E9D2D402129494C0088F672 /* SetGameViewModel.swift in Sources */,
 				2E9D2D2B2129435C0088F672 /* SetGameViewController.swift in Sources */,
 				2E9D2D4221295D630088F672 /* PlayingCards.swift in Sources */,
+				2E9A4D3C2132C19E004DDB11 /* ButtonExtension.swift in Sources */,
 				2E9D2D292129435C0088F672 /* AppDelegate.swift in Sources */,
+				2E9A4D3921329FFE004DDB11 /* SetGameProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

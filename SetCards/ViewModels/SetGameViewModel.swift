@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SetGameViewModel {
+class SetGameViewModel: SetGameProtocol {
     
     var playingCards = PlayingCards()
     var selectedBtnsNames = [String]()
@@ -55,7 +55,7 @@ class SetGameViewModel {
         for btn in allCards {
             for name in selectedBtnsNames{
                 if btn.title(for: .normal) == name {
-                    btn.layer.borderWidth = 0
+                    btn.removeButtonBorder()
                 }
             }
         }
@@ -70,7 +70,7 @@ class SetGameViewModel {
             for btn in allCards {
                 for name in self.selectedBtnsNames{
                     if btn.title(for: .normal) == name {
-                        btn.layer.borderWidth = 0
+                        btn.removeButtonBorder()
                         let rand = Int(arc4random_uniform(UInt32(self.playingCards.secondryImagesNames.count)))
                         let btnImageName = self.playingCards.secondryImagesNames.remove(at: rand)
                         btn.setImage(UIImage(named: btnImageName), for: .normal)
@@ -134,11 +134,10 @@ class SetGameViewModel {
             return
         }
         
-        if (!isSelectedBefore){
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.blue.cgColor
+        if (!isSelectedBefore) {
+            button.addBottomBorderWithColor(width: 1.0)
         } else {
-            button.layer.borderWidth = 0
+            button.removeButtonBorder()
         }
     }
     

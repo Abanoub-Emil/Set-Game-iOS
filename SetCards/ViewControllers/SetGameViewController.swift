@@ -14,7 +14,7 @@ class SetGameViewController: UIViewController {
     var hiddenRows = [UIStackView]()
     var score = 0
     let alertTitle = "Set Game"
-    let alertOkButtonText = "Restart"
+    let alertOkButtonText = "New Game"
     @IBOutlet var allCards: [UIButton]!
     
     @IBOutlet weak var scoreLabel: UILabel!
