@@ -28,7 +28,9 @@ class SetGameViewController: UIViewController {
         setGameViewModel.setButtonsImage(allCards)
         hiddenRows = hiddenStacks
         
-        
+        setGameViewModel.longAction(attr: "kl") {
+            print("lk")
+        }
     }
     
     override func viewWillLayoutSubviews() {

@@ -18,14 +18,14 @@ class SetGameViewModel: SetGameProtocol {
     
     func setButtonsImage(_ allCards: [UIButton]) {
         playingCards = PlayingCards()
-        for index in 0..<playingCards.primaryImagesNames.count {
-            let rand = Int(arc4random_uniform(UInt32(playingCards.primaryImagesNames.count)))
-            let btnImageName = playingCards.primaryImagesNames.remove(at: rand)
-            allCards[index].setImage(UIImage(named: btnImageName), for: .normal)
-            allCards[index].setTitle(btnImageName, for: .normal)
-            print(allCards[index].title(for: .normal)!)
+        for index in 0..<12 {
+            let rand = Int(arc4random_uniform(UInt32(playingCards.primaryCards!.count)))
+            let btnImageName = playingCards.primaryCards!.remove(at: rand)
+//            allCards[index].setImage(UIImage(named: btnImageName), for: .normal)
+            allCards[index].setAttributedTitle(btnImageName, for: .normal)
+            print(allCards[index].attributedTitle(for: .normal)!)
             
-            if index == allCards.count-1{
+            if index == allCards.count-12 {
                 break
             }
         }
@@ -159,5 +159,8 @@ class SetGameViewModel: SetGameProtocol {
         
     }
     
+    func longAction(attr: String, completetion: () -> ()) {
+        
+    }
     
 }

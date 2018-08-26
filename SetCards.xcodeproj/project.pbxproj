@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E9A4D3921329FFE004DDB11 /* SetGameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A4D3821329FFE004DDB11 /* SetGameProtocol.swift */; };
 		2E9A4D3C2132C19E004DDB11 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A4D3B2132C19E004DDB11 /* ButtonExtension.swift */; };
+		2E9A4D3E2132DB27004DDB11 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A4D3D2132DB27004DDB11 /* Enum.swift */; };
+		2E9A4D402132EA2B004DDB11 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A4D3F2132EA2B004DDB11 /* TestViewController.swift */; };
 		2E9D2D292129435C0088F672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D282129435C0088F672 /* AppDelegate.swift */; };
 		2E9D2D2B2129435C0088F672 /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */; };
 		2E9D2D2E2129435C0088F672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D2D2C2129435C0088F672 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		2E9A4D3821329FFE004DDB11 /* SetGameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameProtocol.swift; sourceTree = "<group>"; };
 		2E9A4D3B2132C19E004DDB11 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		2E9A4D3D2132DB27004DDB11 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		2E9A4D3F2132EA2B004DDB11 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		2E9D2D252129435C0088F672 /* SetCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D2D282129435C0088F672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				2E9D2D4121295D630088F672 /* PlayingCards.swift */,
+				2E9A4D3D2132DB27004DDB11 /* Enum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				2E9D2D2A2129435C0088F672 /* SetGameViewController.swift */,
+				2E9A4D3F2132EA2B004DDB11 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -325,7 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9A4D3E2132DB27004DDB11 /* Enum.swift in Sources */,
 				2E9D2D402129494C0088F672 /* SetGameViewModel.swift in Sources */,
+				2E9A4D402132EA2B004DDB11 /* TestViewController.swift in Sources */,
 				2E9D2D2B2129435C0088F672 /* SetGameViewController.swift in Sources */,
 				2E9D2D4221295D630088F672 /* PlayingCards.swift in Sources */,
 				2E9A4D3C2132C19E004DDB11 /* ButtonExtension.swift in Sources */,
