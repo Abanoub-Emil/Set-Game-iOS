@@ -15,6 +15,7 @@ class SetGameViewController: UIViewController {
     var score = 0
     let alertTitle = "Set Game"
     let alertOkButtonText = "New Game"
+    let alertCancelButtonText = "Cancel"
     @IBOutlet var allCards: [UIButton]!
     
     @IBOutlet weak var scoreLabel: UILabel!
@@ -28,9 +29,6 @@ class SetGameViewController: UIViewController {
         setGameViewModel.setButtonsImage(allCards)
         hiddenRows = hiddenStacks
         
-        setGameViewModel.longAction(attr: "kl") {
-            print("lk")
-        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -66,11 +64,18 @@ class SetGameViewController: UIViewController {
                            completion: nil)
             
         }
-        if setGameViewModel.playingCards.secondryImagesNames.isEmpty {
+        if setGameViewModel.playingCards.primaryCards.isEmpty {
+            for card in allCards {
+                if card.attributedTitle(for: .normal)?.string == " "{
+                    card.setAttributedTitle(nil, for: .normal)
+                }
+            }
             checkIfGameHasFinished()
             deal3CardsButton.isEnabled = false
         }
         scoreLabel.text = String(score)
+        
+        
         
     }
     
@@ -81,7 +86,7 @@ class SetGameViewController: UIViewController {
         newStack.isHidden = false
         setGameViewModel.addThreeCardsTo(allCards)
         
-        if setGameViewModel.playingCards.secondryImagesNames.isEmpty {
+        if setGameViewModel.playingCards.primaryCards.isEmpty || hiddenRows.isEmpty {
             deal3CardsButton.isEnabled = false
         }
         
@@ -90,7 +95,7 @@ class SetGameViewController: UIViewController {
     
     func checkIfGameHasFinished() {
         for card in allCards {
-            if card.currentImage != nil{
+            if card.attributedTitle(for: .normal) != nil{
                 return
             }
             
@@ -108,7 +113,8 @@ class SetGameViewController: UIViewController {
     
     func resetDashboard() {
         for card in self.allCards {
-            card.setTitle("", for: .normal)
+            let attrStr = NSAttributedString(string: " ", attributes: nil)
+            card.setAttributedTitle(attrStr, for: .normal)
         }
         self.setGameViewModel.setButtonsImage(self.allCards)
         for stack in self.hiddenStacks {
@@ -118,6 +124,25 @@ class SetGameViewController: UIViewController {
         self.deal3CardsButton.isEnabled = true
         score = 0
         scoreLabel.text = String(score)
+    }
+    
+    @IBAction func newGame(_ sender: UIButton) {
+        createNewGame()
+    }
+    
+    func createNewGame() {
+        let alertMessage = "Do you really want to start a new game?! \n Your progress will be lost!!"
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        
+        let actionOk = UIAlertAction(title: alertOkButtonText, style: .default) { (UIAlertAction) in
+            self.resetDashboard()
+        }
+        let actionCancel = UIAlertAction(title: alertCancelButtonText, style: .cancel) { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(actionOk)
+        alertController.addAction(actionCancel)
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }

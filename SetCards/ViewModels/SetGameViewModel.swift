@@ -12,49 +12,39 @@ import UIKit
 class SetGameViewModel: SetGameProtocol {
     
     var playingCards = PlayingCards()
-    var selectedBtnsNames = [String]()
+    var selectedBtnsNames = [NSAttributedString]()
     var selectedBtnsTags = [Int]()
     var isSelectedBefore = false
     
     func setButtonsImage(_ allCards: [UIButton]) {
         playingCards = PlayingCards()
+        let lastIndex = UInt32(playingCards.primaryCards.count)/4
         for index in 0..<12 {
-            let rand = Int(arc4random_uniform(UInt32(playingCards.primaryCards!.count)))
-            let btnImageName = playingCards.primaryCards!.remove(at: rand)
-//            allCards[index].setImage(UIImage(named: btnImageName), for: .normal)
+            let rand = Int(arc4random_uniform(lastIndex))
+            let btnImageName = playingCards.primaryCards.remove(at: rand)
             allCards[index].setAttributedTitle(btnImageName, for: .normal)
-            print(allCards[index].attributedTitle(for: .normal)!)
             
-            if index == allCards.count-12 {
-                break
-            }
         }
     }
     
     func checkNumberOfSelected(_ allCards: [UIButton]) -> Bool? {
         
-            
-            var selectedGroup = [String]()
-            for name in selectedBtnsNames {
-                selectedGroup.append(String(name.dropLast()))
-            }
-            
-            if selectedGroup[0] == selectedGroup[1],
-                selectedGroup[0] == selectedGroup[2] {
+        if playingCards.cardValue[selectedBtnsNames[0]]!  == playingCards.cardValue[selectedBtnsNames[1]]!,
+                playingCards.cardValue[selectedBtnsNames[0]]! == playingCards.cardValue[selectedBtnsNames[2]]! {
                 print("a match")
                 replaceSuccessfulMatchCards(allCards)
                 return true
             }
             
-           setSelectinToNone(allCards)
+           setSelectionToNone(allCards)
             return false
         
     }
     
-    func setSelectinToNone(_ allCards: [UIButton]) {
+    func setSelectionToNone(_ allCards: [UIButton]) {
         for btn in allCards {
             for name in selectedBtnsNames{
-                if btn.title(for: .normal) == name {
+                if btn.attributedTitle(for: .normal) == name || btn.attributedTitle(for: .normal) == nil  {
                     btn.removeButtonBorder()
                 }
             }
@@ -63,18 +53,18 @@ class SetGameViewModel: SetGameProtocol {
     }
     
     func replaceSuccessfulMatchCards(_ allCards: [UIButton]) {
-        if playingCards.secondryImagesNames.isEmpty {
+        if playingCards.primaryCards.isEmpty {
             hideButtons(allCards)
             return
         }
             for btn in allCards {
                 for name in self.selectedBtnsNames{
-                    if btn.title(for: .normal) == name {
+                    if btn.attributedTitle(for: .normal) == name {
                         btn.removeButtonBorder()
-                        let rand = Int(arc4random_uniform(UInt32(self.playingCards.secondryImagesNames.count)))
-                        let btnImageName = self.playingCards.secondryImagesNames.remove(at: rand)
-                        btn.setImage(UIImage(named: btnImageName), for: .normal)
-                        btn.setTitle(btnImageName, for: .normal)
+                        let lastIndex = UInt32(playingCards.primaryCards.count)/4
+                        let rand = Int(arc4random_uniform(lastIndex))
+                        let btnImageName = self.playingCards.primaryCards.remove(at: rand)
+                        btn.setAttributedTitle(btnImageName, for: .normal)
                     }
                 }
             }
@@ -85,18 +75,18 @@ class SetGameViewModel: SetGameProtocol {
     func hideButtons(_ allCards: [UIButton]) {
             for btn in allCards {
                 for name in self.selectedBtnsNames{
-                    if btn.title(for: .normal) == name {
-                        btn.setImage(nil, for: .normal)
+                    if btn.attributedTitle(for: .normal) == name {
+                        btn.setAttributedTitle(nil, for: .normal)
                     }
                 }
             }
-        setSelectinToNone(allCards)
+        setSelectionToNone(allCards)
     }
     
     func buttonIsSelected(_ button: UIButton) {
-        if let btnTitle = button.title(for: .normal) {
+        if let btnTitle = button.attributedTitle(for: .normal) {
             
-                if button.currentImage == nil {
+                if button.attributedTitle(for: .normal) == nil {
                     return
                 }
             
@@ -122,7 +112,7 @@ class SetGameViewModel: SetGameProtocol {
         }
     }
     
-    func appendToSelectedButtons(title: String, tag: Int) {
+    func appendToSelectedButtons(title: NSAttributedString, tag: Int) {
         isSelectedBefore = false
         selectedBtnsNames.append(title)
         selectedBtnsTags.append(tag)
@@ -130,7 +120,7 @@ class SetGameViewModel: SetGameProtocol {
     
     func changeButtonTintColor(_ button: UIButton) {
         
-        if button.currentImage == nil {
+        if button.attributedTitle(for: .normal) == nil {
             return
         }
         
@@ -144,11 +134,11 @@ class SetGameViewModel: SetGameProtocol {
     func addThreeCardsTo(_ allCards: [UIButton]) {
         var numOfAddedCards = 0
         for btn in allCards {
-            if btn.currentImage == nil {
-                let rand = Int(arc4random_uniform(UInt32(self.playingCards.secondryImagesNames.count)))
-                let btnImageName = self.playingCards.secondryImagesNames.remove(at: rand)
-                btn.setImage(UIImage(named: btnImageName), for: .normal)
-                btn.setTitle(btnImageName, for: .normal)
+            if btn.attributedTitle(for: .normal)?.string == " " {
+                let lastIndex = UInt32(self.playingCards.primaryCards.count)/4
+                let rand = Int(arc4random_uniform(lastIndex))
+                let btnImageName = self.playingCards.primaryCards.remove(at: rand)
+                btn.setAttributedTitle(btnImageName, for: .normal)
                 numOfAddedCards += 1
             }
             
@@ -158,9 +148,5 @@ class SetGameViewModel: SetGameProtocol {
         }
         
     }
-    
-    func longAction(attr: String, completetion: () -> ()) {
-        
-    }
-    
+  
 }

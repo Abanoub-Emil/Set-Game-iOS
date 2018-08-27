@@ -16,7 +16,7 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
 
         let playingCards = PlayingCards()
-        for card in playingCards.primaryCards! {
+        for card in playingCards.primaryCards {
             newMutableString.append(card)
         }
         textView.attributedText = newMutableString

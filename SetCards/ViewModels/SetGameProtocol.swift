@@ -15,7 +15,7 @@ protocol SetGameProtocol {
     
     func checkNumberOfSelected(_ allCards: [UIButton]) -> Bool?
     
-    func setSelectinToNone(_ allCards: [UIButton])
+    func setSelectionToNone(_ allCards: [UIButton])
     
     func replaceSuccessfulMatchCards(_ allCards: [UIButton])
     
@@ -23,7 +23,7 @@ protocol SetGameProtocol {
     
     func buttonIsSelected(_ button: UIButton)
     
-    func appendToSelectedButtons(title: String, tag: Int)
+    func appendToSelectedButtons(title: NSAttributedString, tag: Int)
     
     func changeButtonTintColor(_ button: UIButton)
     
