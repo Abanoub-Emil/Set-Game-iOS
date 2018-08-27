@@ -47,26 +47,12 @@ class SetGameViewController: UIViewController {
         setGameViewModel.buttonIsSelected(sender)
         setGameViewModel.changeButtonTintColor(sender)
         if (setGameViewModel.selectedBtnsNames.count == 3){
-            UIView.animate(withDuration: 0.9,
-                           delay: 0,
-                           options: .transitionCrossDissolve,
-                           animations: {
-                            let isMatch = self.setGameViewModel.checkNumberOfSelected(self.allCards)
-                            if let match = isMatch {
-                                if match {
-                                    self.score += 3
-                                } else {
-                                    self.score -= 7
-                                }
-                            }
-                            self.view.layoutIfNeeded()
-            },
-                           completion: nil)
-            
+           
+           checkSelectedCards()
         }
         if setGameViewModel.playingCards.primaryCards.isEmpty {
             for card in allCards {
-                if card.attributedTitle(for: .normal)?.string == " "{
+                if card.attributedTitle(for: .normal)?.string == " " {
                     card.setAttributedTitle(nil, for: .normal)
                 }
             }
@@ -75,10 +61,26 @@ class SetGameViewController: UIViewController {
         }
         scoreLabel.text = String(score)
         
-        
-        
     }
     
+    func checkSelectedCards() {
+        
+        UIView.animate(withDuration: 0.9,
+                       delay: 0,
+                       options: .transitionCrossDissolve,
+                       animations: {
+                        let isMatch = self.setGameViewModel.checkNumberOfSelected(self.allCards)
+                        if let match = isMatch {
+                            if match {
+                                self.score += 3
+                            } else {
+                                self.score -= 7
+                            }
+                        }
+                        self.view.layoutIfNeeded()
+        },
+                       completion: nil)
+    }
     
     @IBAction func dealThreeMoreCards(_ sender: UIButton) {
         
@@ -94,12 +96,13 @@ class SetGameViewController: UIViewController {
     
     
     func checkIfGameHasFinished() {
+        
         for card in allCards {
             if card.attributedTitle(for: .normal) != nil{
                 return
             }
-            
         }
+        
         let alertMessage = "Congratulations you have finished the game with score: \(score)"
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         

@@ -58,7 +58,7 @@ class SetGameViewModel: SetGameProtocol {
             return
         }
             for btn in allCards {
-                for name in self.selectedBtnsNames{
+                for name in self.selectedBtnsNames {
                     if btn.attributedTitle(for: .normal) == name {
                         btn.removeButtonBorder()
                         let lastIndex = UInt32(playingCards.primaryCards.count)/4
@@ -95,7 +95,7 @@ class SetGameViewModel: SetGameProtocol {
                 return
             }
             
-            for index in 0..<selectedBtnsNames.count{
+            for index in 0..<selectedBtnsNames.count {
                 if btnTitle == selectedBtnsNames[index]{
                     isSelectedBefore = true
                     selectedBtnsNames.remove(at: index)
